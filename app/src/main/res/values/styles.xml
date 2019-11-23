@@ -7,10 +7,21 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="dividerColor">@color/dividerLight</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppThemeAppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
 
 </resources>
