@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Homework App</string>
+    <string name="app_by">Homework App by Domi04151309</string>
 
     <string name="nav_planner">Planner</string>
     <string name="nav_settings">Settings</string>
@@ -7,4 +8,39 @@
 
     <string name="hello_world">Hello World!</string>
 
+    <string name="pref">Settings</string>
+    <string name="pref_general">General Settings</string>
+    <string name="pref_theme">Change theme</string>
+    <string name="pref_theme_summary">Changes the look of the app</string>
+    <string name="pref_planner">Planner</string>
+    <string name="pref_edit_text">Advanced editing</string>
+    <string name="pref_edit_text_summary">Edit the JSON string by yourself</string>
+    <string name="pref_reset">Reset JSON string</string>
+    <string name="pref_reset_summary">This resets the JSON string and deletes all entries</string>
+    <string name="pref_reset_question">Are you sure you want to reset the JSON string and delete all entries?</string>
+    <string name="pref_reset_toast">Reset the JSON string</string>
+    <string name="pref_info">Information</string>
+    <string name="pref_info_icons">Icons</string>
+    <string name="pref_info_icons_summary">Icons by Icons8 and Google</string>
+    <string-array name="pref_theme_array">
+    <item>Light theme</item>
+    <item>Dark theme</item>
+    <item>Black theme</item>
+</string-array>
+    <string-array name="pref_theme_array_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>black</item>
+    </string-array>
+    <string-array name="pref_info_icons_array">
+        <item>Icons8\'s website</item>
+        <item>Google\'s website</item>
+    </string-array>
+
+    <string name="about">About</string>
+    <string name="about_summary">About the app</string>
+    <string name="about_version">Version %1$s</string>
+
+    <string name="about_disclaimer1">There may be newer versions available on GitHub. This app is and always will be free software. Do not pay for this app.</string>
+    <string name="about_disclaimer2">I am not responsible for any damage to your device.</string>
 </resources>

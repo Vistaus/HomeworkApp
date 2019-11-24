@@ -1,0 +1,47 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        app:title="@string/pref_general"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:defaultValue="light"
+            app:entries="@array/pref_theme_array"
+            app:entryValues="@array/pref_theme_array_values"
+            app:key="theme"
+            app:summary="@string/pref_theme_summary"
+            app:title="@string/pref_theme"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:title="@string/pref_planner"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            app:defaultValue='{}'
+            app:key="planner_json"
+            app:summary="@string/pref_edit_text_summary"
+            app:title="@string/pref_edit_text"
+            app:iconSpaceReserved="false" />
+        <Preference
+            app:key="reset_json"
+            app:summary="@string/pref_reset_summary"
+            app:title="@string/pref_reset"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_info"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="about"
+            app:title="@string/about"
+            app:summary="@string/about_summary"
+            app:iconSpaceReserved="false" />
+        <Preference
+            app:key="icons"
+            app:title="@string/pref_info_icons"
+            app:summary="@string/pref_info_icons_summary"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
