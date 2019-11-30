@@ -19,7 +19,7 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
     val halfSize: Int = size / 2
     private var calendar: Calendar = Calendar.getInstance()
     val saveFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-    private val displayFormat: SimpleDateFormat = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+    val displayFormat: SimpleDateFormat = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(c).inflate(R.layout.pager_item, parent, false)
