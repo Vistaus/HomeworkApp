@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.github.domi04151309.homeworkapp.DateAdapter.ViewHolder
 import io.github.domi04151309.homeworkapp.data.Plan
+import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,6 +21,9 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
     private var calendar: Calendar = Calendar.getInstance()
     val saveFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     val displayFormat: SimpleDateFormat = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+    private val plan = Plan(c)
+    private var date: String = ""
+    private var array: JSONArray = JSONArray()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(c).inflate(R.layout.pager_item, parent, false)
@@ -31,10 +35,8 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         calendar.add(Calendar.DATE, position - halfSize)
         holder.dateTxt.text = displayFormat.format(calendar.time)
 
-        val plan = Plan(c)
-        val date = saveFormat.format(calendar.time)
-        val array = plan.getDay(date)
-
+        date = saveFormat.format(calendar.time)
+        array = plan.getDay(date)
         if (array.length() == 0) array.put(c.resources.getString(R.string.planner_empty))
 
         val adapter = ListViewAdapter(c, date, array)
