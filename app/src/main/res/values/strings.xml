@@ -10,6 +10,7 @@
     <string name="planner_no_description">No description provided!</string>
 
     <string name="new_task">New Task</string>
+    <string name="edit_task">Edit Task</string>
     <string name="task_title">Task Title</string>
     <string name="task_title_example">Title of your task</string>
     <string name="task_description">Task Description</string>

@@ -14,6 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme27">
         <activity
+            android:name=".EditActivity"
+            android:label="@string/edit_task"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.domi04151309.homeworkapp.MainActivity" />
+        </activity>
+        <activity
             android:name=".AddActivity"
             android:label="@string/new_task"
             android:parentActivityName=".MainActivity">

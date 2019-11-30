@@ -52,7 +52,10 @@ internal class ListViewAdapter(private val context: Context,private val date: St
                 Toast.makeText(context, R.string.btn_done, Toast.LENGTH_SHORT).show()
             }
             editBtn.setOnClickListener {
-                Toast.makeText(context, R.string.btn_edit, Toast.LENGTH_SHORT).show()
+                context.startActivity(Intent(context, EditActivity::class.java)
+                    .putExtra("date", date)
+                    .putExtra("index", position)
+                )
             }
             deleteBtn.setOnClickListener {
                 AlertDialog.Builder(context)
