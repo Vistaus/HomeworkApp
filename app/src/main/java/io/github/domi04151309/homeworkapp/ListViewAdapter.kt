@@ -1,6 +1,8 @@
 package io.github.domi04151309.homeworkapp
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +10,13 @@ import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import io.github.domi04151309.homeworkapp.data.Plan
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
 
-internal class ListViewAdapter(private val context: Context, private val itemArray: JSONArray) : BaseAdapter() {
+internal class ListViewAdapter(private val context: Context,private val date: String, private val itemArray: JSONArray) : BaseAdapter() {
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private val plan = Plan(context)
@@ -32,7 +35,6 @@ internal class ListViewAdapter(private val context: Context, private val itemArr
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val vi: View = convertView ?: inflater.inflate(R.layout.list_item, parent, false)
-
         val titleTxt = vi.findViewById<TextView>(R.id.title)
         val descriptionTxt = vi.findViewById<TextView>(R.id.description)
         val doneBtn = vi.findViewById<ImageButton>(R.id.doneBtn)
@@ -52,7 +54,15 @@ internal class ListViewAdapter(private val context: Context, private val itemArr
                 Toast.makeText(context, R.string.btn_edit, Toast.LENGTH_SHORT).show()
             }
             deleteBtn.setOnClickListener {
-                Toast.makeText(context, R.string.btn_delete, Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.dialog_delete)
+                    .setMessage(R.string.dialog_delete_summary)
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        plan.deleteTask(date, position)
+                        LocalBroadcastManager.getInstance(context).sendBroadcast(Intent(Global.DATA_SET_CHANGED))
+                    }
+                    .setNegativeButton(android.R.string.cancel) { _, _ -> }
+                    .show()
             }
         } catch (e: Exception) {
             titleTxt.text = itemArray[position].toString()

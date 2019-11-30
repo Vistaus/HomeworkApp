@@ -39,4 +39,10 @@ class Plan(context: Context) {
         val newDateArray = getDay(date).put(planObject)
         _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
     }
+
+    fun deleteTask(date: String, index: Int) {
+        val newDateArray = getDay(date)
+        newDateArray.remove(index)
+        _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
+    }
 }

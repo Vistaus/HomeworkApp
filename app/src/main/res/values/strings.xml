@@ -22,6 +22,8 @@
 
     <string name="err_missing_title">Please enter a title</string>
     <string name="err_missing_title_summary">A title is important so that you can recognize the entry later</string>
+    <string name="dialog_delete">Delete</string>
+    <string name="dialog_delete_summary">Are you sure you want to delete this item?</string>
 
     <string name="pref">Settings</string>
     <string name="pref_general">General Settings</string>

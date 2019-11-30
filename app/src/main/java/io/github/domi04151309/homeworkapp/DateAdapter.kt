@@ -32,11 +32,12 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         holder.dateTxt.text = displayFormat.format(calendar.time)
 
         val plan = Plan(c)
-        val array = plan.getDay(saveFormat.format(calendar.time))
+        val date = saveFormat.format(calendar.time)
+        val array = plan.getDay(date)
 
         if (array.length() == 0) array.put(c.resources.getString(R.string.planner_empty))
 
-        val adapter = ListViewAdapter(c, array)
+        val adapter = ListViewAdapter(c, date, array)
         holder.listView.adapter = adapter
     }
 

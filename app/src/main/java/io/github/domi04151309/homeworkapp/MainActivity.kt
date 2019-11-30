@@ -1,6 +1,9 @@
 package io.github.domi04151309.homeworkapp
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,6 +11,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -22,6 +26,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var viewPager: ViewPager2? = null
     private val loadingSize = Integer.MAX_VALUE
     private var reload = false
+
+    private val dataSetReceiver = object : BroadcastReceiver() {
+        override fun onReceive(c: Context, intent: Intent) {
+            viewPager!!.adapter!!.notifyDataSetChanged()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Theme.setNoActionBar(this)
@@ -44,6 +54,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager!!.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         viewPager!!.adapter = dateAdapter
         viewPager!!.currentItem = loadingSize / 2
+
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(dataSetReceiver, IntentFilter(Global.DATA_SET_CHANGED))
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
