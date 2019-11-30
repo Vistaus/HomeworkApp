@@ -10,6 +10,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import android.net.Uri
+import io.github.domi04151309.homeworkapp.objects.Global
+import io.github.domi04151309.homeworkapp.objects.Theme
 
 
 class Preferences : AppCompatActivity() {

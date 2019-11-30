@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp
+package io.github.domi04151309.homeworkapp.objects
 
 object Global {
 

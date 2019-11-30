@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.domi04151309.homeworkapp.data.Plan
 import io.github.domi04151309.homeworkapp.data.PlanItem
+import io.github.domi04151309.homeworkapp.objects.Theme
 
 class AddActivity : AppCompatActivity() {
 

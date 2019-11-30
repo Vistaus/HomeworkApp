@@ -1,6 +1,5 @@
 package io.github.domi04151309.homeworkapp
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,8 +9,10 @@ import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import io.github.domi04151309.homeworkapp.data.Plan
+import io.github.domi04151309.homeworkapp.objects.Global
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
@@ -59,7 +60,8 @@ internal class ListViewAdapter(private val context: Context,private val date: St
                     .setMessage(R.string.dialog_delete_summary)
                     .setPositiveButton(android.R.string.ok) { _, _ ->
                         plan.deleteTask(date, position)
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(Intent(Global.DATA_SET_CHANGED))
+                        LocalBroadcastManager.getInstance(context).sendBroadcast(Intent(
+                            Global.DATA_SET_CHANGED))
                     }
                     .setNegativeButton(android.R.string.cancel) { _, _ -> }
                     .show()

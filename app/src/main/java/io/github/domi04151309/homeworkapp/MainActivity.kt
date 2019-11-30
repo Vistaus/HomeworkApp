@@ -15,6 +15,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import io.github.domi04151309.homeworkapp.objects.Global
+import io.github.domi04151309.homeworkapp.objects.Theme
 import java.util.*
 
 
@@ -56,7 +58,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager!!.currentItem = loadingSize / 2
 
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(dataSetReceiver, IntentFilter(Global.DATA_SET_CHANGED))
+        LocalBroadcastManager.getInstance(this).registerReceiver(dataSetReceiver, IntentFilter(
+            Global.DATA_SET_CHANGED))
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
@@ -84,6 +87,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 viewPager!!.currentItem = loadingSize / 2
             }
             R.id.nav_settings -> {
+                reload = true
                 startActivity(Intent(this, Preferences::class.java))
             }
             R.id.nav_source -> {

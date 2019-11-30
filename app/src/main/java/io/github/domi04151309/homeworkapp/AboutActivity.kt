@@ -3,6 +3,7 @@ package io.github.domi04151309.homeworkapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import io.github.domi04151309.homeworkapp.objects.Theme
 
 class AboutActivity : AppCompatActivity() {
 
