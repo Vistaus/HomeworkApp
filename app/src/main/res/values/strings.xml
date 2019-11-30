@@ -17,6 +17,9 @@
     <string name="task_description_example">What you have to do</string>
     <string name="date">Date: %1$s</string>
 
+    <string name="err_missing_title">Please enter a title</string>
+    <string name="err_missing_title_summary">A title is important so that you can recognize the entry later</string>
+
     <string name="pref">Settings</string>
     <string name="pref_general">General Settings</string>
     <string name="pref_theme">Change theme</string>

@@ -9,6 +9,8 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.github.domi04151309.homeworkapp.DateAdapter.ViewHolder
+import io.github.domi04151309.homeworkapp.data.Plan
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -31,7 +33,18 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         calendar.add(Calendar.DATE, position - halfSize)
         holder.dateTxt.text = displayFormat.format(calendar.time)
 
-        val values = c.resources.getStringArray(R.array.planner_empty)
+        val plan = Plan(c)
+        val array = plan.getDay(saveFormat.format(calendar.time))
+        var values: Array<String> = arrayOf()
+
+        if (array.length() == 0) {
+            values = c.resources.getStringArray(R.array.planner_empty)
+        } else {
+            for (i in 0 until array.length()) {
+                values += plan.convertToPlanItem(array.get(i) as JSONObject).title
+            }
+        }
+
         val adapter = ArrayAdapter<String>(
             c,
             R.layout.list_item,

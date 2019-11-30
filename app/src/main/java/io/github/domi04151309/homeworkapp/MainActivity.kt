@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private var viewPager: ViewPager2? = null
     private val loadingSize = Integer.MAX_VALUE
+    private var reload = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Theme.setNoActionBar(this)
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
             calendar.add(Calendar.DATE, viewPager!!.currentItem - dateAdapter.halfSize)
+
+            reload = true
 
             startActivity(Intent(this, AddActivity::class.java)
                 .putExtra("saveDate", dateAdapter.saveFormat.format(calendar.time))
@@ -81,5 +84,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onResume() {
         super.onResume()
         navView!!.setCheckedItem(R.id.nav_planner)
+        if (reload) {
+            viewPager!!.adapter!!.notifyDataSetChanged()
+            reload = false
+        }
     }
 }

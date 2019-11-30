@@ -6,7 +6,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import io.github.domi04151309.homeworkapp.data.Plan
+import io.github.domi04151309.homeworkapp.data.PlanItem
 
 class AddActivity : AppCompatActivity() {
 
@@ -19,6 +22,7 @@ class AddActivity : AppCompatActivity() {
         val displayDate = intent.getStringExtra("displayDate") ?: ""
         val titleTxt = findViewById<TextView>(R.id.titleTxt)
         val titleBox = findViewById<EditText>(R.id.titleBox)
+        val descriptionBox = findViewById<EditText>(R.id.descriptionBox)
 
         findViewById<TextView>(R.id.dateTxt).text = resources.getString(R.string.date, displayDate)
 
@@ -33,6 +37,18 @@ class AddActivity : AppCompatActivity() {
         })
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+            val title = titleBox.text.toString()
+            if (title == "") {
+                AlertDialog.Builder(this)
+                    .setTitle(R.string.err_missing_title)
+                    .setMessage(R.string.err_missing_title_summary)
+                    .setPositiveButton(android.R.string.ok) { _, _ -> }
+                    .show()
+                return@setOnClickListener
+            }
+            val newItem = PlanItem(title)
+            newItem.description = descriptionBox.text.toString()
+            Plan(this).addTask(saveDate, newItem)
             finish()
         }
     }
