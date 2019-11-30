@@ -39,6 +39,8 @@
     <string name="pref_info">Information</string>
     <string name="pref_info_icons">Icons</string>
     <string name="pref_info_icons_summary">Icons by Icons8 and Google</string>
+    <string name="pref_info_header">Header background</string>
+    <string name="pref_info_header_summary">Header background by Nick Perez on Unsplash</string>
     <string-array name="pref_theme_array">
         <item>Light theme</item>
         <item>Dark theme</item>

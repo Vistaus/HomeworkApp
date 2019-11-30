@@ -68,6 +68,10 @@ class Preferences : AppCompatActivity() {
                         .show()
                 true
             }
+            findPreference<Preference>("header")!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://unsplash.com/photos/duvq92-VCZ4")))
+                true
+            }
         }
     }
 }

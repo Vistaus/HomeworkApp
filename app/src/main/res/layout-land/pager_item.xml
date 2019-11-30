@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="?dialogPreferredPadding"
-            android:background="@drawable/header_bg_xml"
+            android:background="?colorAccent"
             android:orientation="vertical">
 
             <TextView
