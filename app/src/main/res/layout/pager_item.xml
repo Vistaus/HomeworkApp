@@ -12,22 +12,21 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp">
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/header_bg"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/dateTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="?dialogPreferredPadding"
-            android:background="@drawable/header_bg_xml"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/dateTxt"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:textColor="#fff"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-        </LinearLayout>
+            android:gravity="center_vertical"
+            android:textColor="#fff"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     </androidx.cardview.widget.CardView>
 
