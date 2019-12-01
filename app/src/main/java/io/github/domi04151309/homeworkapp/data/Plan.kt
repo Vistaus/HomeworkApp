@@ -45,4 +45,10 @@ class Plan(context: Context) {
         newDateArray.remove(index)
         _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
     }
+
+    fun done(done: Boolean, date: String, index: Int) {
+        val newDateArray = getDay(date)
+        newDateArray.getJSONObject(index).put("done", done)
+        _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
+    }
 }

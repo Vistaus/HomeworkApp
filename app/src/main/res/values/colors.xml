@@ -9,4 +9,6 @@
     <color name="dividerLight">#14000000</color>
     <color name="dividerDark">#14ffffff</color>
     <color name="navigationBarColor">#000001</color>
+    <color name="donePrimary">#DE43A047</color>
+    <color name="doneSecondary">#9943A047</color>
 </resources>

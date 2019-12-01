@@ -82,6 +82,14 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="DoneTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/donePrimary</item>
+    </style>
+
+    <style name="DoneDescription" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/doneSecondary</item>
+    </style>
+
     <style name="AppThemeAppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
 
 </resources>
