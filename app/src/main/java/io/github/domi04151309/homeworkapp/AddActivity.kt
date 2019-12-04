@@ -1,5 +1,6 @@
 package io.github.domi04151309.homeworkapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -7,9 +8,11 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.domi04151309.homeworkapp.data.Plan
 import io.github.domi04151309.homeworkapp.data.PlanItem
+import io.github.domi04151309.homeworkapp.objects.Global
 import io.github.domi04151309.homeworkapp.objects.Theme
 
 class AddActivity : AppCompatActivity() {
@@ -50,6 +53,8 @@ class AddActivity : AppCompatActivity() {
             val newItem = PlanItem(title)
             newItem.description = descriptionBox.text.toString()
             Plan(this).addTask(saveDate, newItem)
+            LocalBroadcastManager.getInstance(this)
+                .sendBroadcast(Intent(Global.DATA_SET_CHANGED))
             finish()
         }
     }

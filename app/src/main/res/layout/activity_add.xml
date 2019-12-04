@@ -21,7 +21,7 @@
                 android:layout_height="@dimen/header_icon_height"
                 android:layout_marginTop="@dimen/dialog_item_margin"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_copybook" />
+                app:srcCompat="@drawable/ic_color_copybook" />
 
             <TextView
                 android:id="@+id/titleTxt"

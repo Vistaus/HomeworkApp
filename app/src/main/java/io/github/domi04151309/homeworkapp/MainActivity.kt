@@ -65,8 +65,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val calendar: Calendar = Calendar.getInstance()
             calendar.add(Calendar.DATE, viewPager!!.currentItem - dateAdapter.halfSize)
 
-            reload = true
-
             startActivity(Intent(this, AddActivity::class.java)
                 .putExtra("saveDate", dateAdapter.saveFormat.format(calendar.time))
                 .putExtra("displayDate", dateAdapter.displayFormat.format(calendar.time))

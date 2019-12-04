@@ -19,7 +19,7 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
     private val fullSize: Int = size
     val halfSize: Int = size / 2
     private var calendar: Calendar = Calendar.getInstance()
-    val saveFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    val saveFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     val displayFormat: SimpleDateFormat = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
     private val plan = Plan(c)
     private var date: String = ""
