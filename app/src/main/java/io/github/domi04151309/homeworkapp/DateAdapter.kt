@@ -1,14 +1,19 @@
 package io.github.domi04151309.homeworkapp
 
+import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.domi04151309.homeworkapp.DateAdapter.ViewHolder
 import io.github.domi04151309.homeworkapp.data.Plan
+import io.github.domi04151309.homeworkapp.objects.Global
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.*
@@ -41,14 +46,46 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
 
         val adapter = ListViewAdapter(c, date, array)
         holder.listView.adapter = adapter
+
+        val cal = Calendar.getInstance()
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            cal.set(Calendar.HOUR_OF_DAY, 0)
+            cal.set(Calendar.MINUTE, 0)
+            cal.set(Calendar.SECOND, 0)
+            cal.set(Calendar.MILLISECOND, 0)
+
+            LocalBroadcastManager.getInstance(c).sendBroadcast(
+                Intent(Global.LOAD_REQUESTED)
+                    .putExtra("difference", getDaysDifference(cal.time))
+            )
+        }
+        holder.jumpBtn.setOnClickListener {
+            DatePickerDialog(c, dateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
     }
 
     override fun getItemCount(): Int {
         return fullSize
     }
 
+    private fun getDaysDifference(to: Date): Int {
+        val today = Calendar.getInstance()
+        today.set(Calendar.HOUR_OF_DAY, 0)
+        today.set(Calendar.MINUTE, 0)
+        today.set(Calendar.SECOND, 0)
+        today.set(Calendar.MILLISECOND, 0)
+        return ((to.time - today.time.time) / (1000 * 60 * 60 * 24)).toInt()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dateTxt: TextView = itemView.findViewById(R.id.dateTxt)
+        val jumpBtn: ImageButton = itemView.findViewById(R.id.jumpBtn)
         val listView: ListView = itemView.findViewById(R.id.listView)
     }
 }

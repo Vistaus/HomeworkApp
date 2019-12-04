@@ -35,6 +35,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private val loadRequestedReceiver = object : BroadcastReceiver() {
+        override fun onReceive(c: Context, intent: Intent) {
+            viewPager!!.currentItem = loadingSize / 2 + intent.getIntExtra("difference", 0)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Theme.setNoActionBar(this)
         super.onCreate(savedInstanceState)
@@ -57,9 +63,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager!!.adapter = dateAdapter
         viewPager!!.currentItem = loadingSize / 2
 
-
-        LocalBroadcastManager.getInstance(this).registerReceiver(dataSetReceiver, IntentFilter(
-            Global.DATA_SET_CHANGED))
+        val localBroadcastManager = LocalBroadcastManager.getInstance(this)
+        localBroadcastManager.registerReceiver(dataSetReceiver, IntentFilter(Global.DATA_SET_CHANGED))
+        localBroadcastManager.registerReceiver(loadRequestedReceiver, IntentFilter(Global.LOAD_REQUESTED))
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
