@@ -5,6 +5,8 @@
     android:installLocation="preferExternal"
     tools:ignore="GoogleAppIndexingWarning">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -13,6 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme27">
+        <receiver
+            android:name=".receivers.OnBootCompleted"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <service
             android:name=".services.AddTaskQS"
             android:icon="@drawable/ic_copybook"
