@@ -49,11 +49,6 @@
         <item>Donker thema</item>
         <item>Zwart thema</item>
     </string-array>
-    <string-array name="pref_theme_array_values">
-        <item>licht</item>
-        <item>donker</item>
-        <item>zwart</item>
-    </string-array>
     <string-array name="pref_info_icons_array">
         <item>Icons8-website</item>
         <item>Google-website</item>
