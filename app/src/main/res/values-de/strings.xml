@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Hausaufgaben App</string>
+    <string name="app_by">Hausaufgaben App von Domi04151309</string>
+
+    <string name="nav_planner">Planer</string>
+    <string name="nav_settings">Einstellungen</string>
+    <string name="nav_source">Quelltext</string>
+
+    <string name="jump_to_date">Zu Datum springen</string>
+
+    <string name="planner_empty">Noch nichts geplant!</string>
+    <string name="planner_no_description">Keine Beschreibung verfügbar!</string>
+
+    <string name="new_task">Neue Aufgabe</string>
+    <string name="edit_task">Aufgabe bearbeiten</string>
+    <string name="task_title">Aufgabentitel</string>
+    <string name="task_title_example">Titel der Aufgabe</string>
+    <string name="task_description">Aufgabenbeschreibung</string>
+    <string name="task_description_example">Was die Aufgabe ist</string>
+    <string name="date">Datum: %1$s</string>
+
+    <string name="btn_done">Fertig</string>
+    <string name="btn_edit">Bearbeiten</string>
+    <string name="btn_delete">Löschen</string>
+
+    <string name="err_missing_title">Geben Sie bitte einen Titel ein</string>
+    <string name="err_missing_title_summary">Ein Titel ist wichtig, damit sie Den Eintrag später wiedererkennen können</string>
+    <string name="dialog_delete">Löschen</string>
+    <string name="dialog_delete_summary">Sind Sie sich sicher, dass Sie diesen Eintrag löschen möchten?</string>
+
+    <string name="pref">Einstellungen</string>
+    <string name="pref_general">Generelle Einstellungen</string>
+    <string name="pref_theme">Thema ändern</string>
+    <string name="pref_theme_summary">Ändert das Aussehen der App</string>
+    <string name="pref_planner">Planer</string>
+    <string name="pref_edit_text">Erweitertes Bearbeiten</string>
+    <string name="pref_edit_text_summary">Bearbeiten Sie die JSON-Zeichenfolge selbst</string>
+    <string name="pref_reset">JSON-Zeichenfolge zurücksetzen</string>
+    <string name="pref_reset_summary">Setzt die JSON-Zeichenfolge zurück und löscht alle Einträge</string>
+    <string name="pref_reset_question">Sind Sie sich sicher, dass Sie die JSON-Zeichenfolge zurücksetzen und alle Einträge löschen möchten?</string>
+    <string name="pref_reset_toast">JSON-Zeichenfolge zurückgesetzt</string>
+    <string name="pref_info">Informationen</string>
+    <string name="pref_info_header">Hintergrund des Kopfbereiches</string>
+    <string name="pref_info_header_summary">Hintergrund des Kopfbereiches von Nick Perez auf Unsplash</string>
+    <string-array name="pref_theme_array">
+        <item>Helles Thema</item>
+        <item>Dunkles Thema</item>
+        <item>Schwarzes Thema</item>
+    </string-array>
+
+    <string name="about">Über</string>
+    <string name="about_summary">Über die App</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_github">Möglicherweise sind neuere Versionen auf <a href="https://github.com/Domi04151309/HomeworkApp">GitHub</a> verfügbar. Diese App ist und bleibt freie Software. Zahlen Sie nicht für diese App.</string>
+    <string name="about_license">Diese App wird unter den Bedingungen der <a href="https://github.com/Domi04151309/HomeworkApp/blob/master/LICENSE">GNU General Public License v3.0</a> zur Verfügung gestellt.</string>
+    <string name="about_damage">Ich bin nicht für Schäden an Ihrem Gerät verantwortlich.</string>
+    <string name="about_icons">Icons von <a href="https://icons8.com/">Icons8</a> und <a href="https://material.io/resources/icons/">Google</a>.</string>
+</resources>
