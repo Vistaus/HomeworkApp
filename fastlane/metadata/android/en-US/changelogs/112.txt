@@ -1,0 +1,2 @@
+- Performance improvements
+- Add German and Dutch translation

@@ -1,0 +1,14 @@
+With this app, you can keep track of what you are doing by conveniently typing the tasks you want to complete sorted by date and marking them as done when you are done.
+
+<font color="#2467d6"><b>Features</b></font>
+- Save and edit tasks
+- Mark tasks as done
+- Sort tasks by date
+- Quick Tile for adding tasks
+- Ability to jump to a certain date
+- Themes
+
+<font color="#2467d6"><b>Related Links</b></font>
+Source code: <a href="https://github.com/Domi04151309/HomeworkApp">https://github.com/Domi04151309/HomeworkApp</a>
+Website: <a href="https://domi04151309.github.io/Android/HomeworkApp">https://domi04151309.github.io/Android/HomeworkApp</a>
+Icons8: <a href="https://icons8.com/">https://icons8.com/</a>
