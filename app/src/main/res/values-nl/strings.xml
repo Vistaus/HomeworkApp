@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Huiswerk</string>
+    <string name="app_by">Huiswerk-app, gemaakt door @Domi04151309</string>
+
+    <string name="nav_planner">Planner</string>
+    <string name="nav_settings">Instellingen</string>
+    <string name="nav_source">Broncode</string>
+
+    <string name="jump_to_date">Ga naar datum</string>
+
+    <string name="planner_empty">Je hebt nog niks ingepland.</string>
+    <string name="planner_no_description">Geen omschrijving opgegeven!</string>
+
+    <string name="new_task">Taak toevoegen</string>
+    <string name="edit_task">Taak aanpassen</string>
+    <string name="task_title">Naam van taak</string>
+    <string name="task_title_example">De naam van je taak</string>
+    <string name="task_description">Taakomschrijving</string>
+    <string name="task_description_example">Wat je precies moet doen</string>
+    <string name="date">Datum: %1$s</string>
+
+    <string name="btn_done">Klaar</string>
+    <string name="btn_edit">Aanpassen</string>
+    <string name="btn_delete">Verwijderen</string>
+
+    <string name="err_missing_title">Voer een naam in</string>
+    <string name="err_missing_title_summary">Voer een naam in zodat je de taak later makkelijk kunt herkennen</string>
+    <string name="dialog_delete">Verwijderen</string>
+    <string name="dialog_delete_summary">Weet je zeker dat je dit item wilt verwijderen?</string>
+
+    <string name="pref">Instellingen</string>
+    <string name="pref_general">Algemeen</string>
+    <string name="pref_theme">Thema wijzigen</string>
+    <string name="pref_theme_summary">Pas het uiterlijk van de app aan</string>
+    <string name="pref_planner">Planner</string>
+    <string name="pref_edit_text">Expertmodus</string>
+    <string name="pref_edit_text_summary">Pas de JSON-string handmatig aan</string>
+    <string name="pref_reset">Standaardwaarden van JSON-string</string>
+    <string name="pref_reset_summary">Herstel de standaardwaarden van de JSON-string en verwijder alle taken</string>
+    <string name="pref_reset_question">Weet je zeker dat je wilt doorgaan?</string>
+    <string name="pref_reset_toast">Standaardwaarden teruggezet</string>
+    <string name="pref_info">Informatie</string>
+    <string name="pref_info_icons">Pictogrammen</string>
+    <string name="pref_info_icons_summary">De pictogrammen zijn gemaakt door Icons8 en Google</string>
+    <string name="pref_info_header">Kopachtergrond</string>
+    <string name="pref_info_header_summary">De kopachtergrond is gemaakt door Nick Perez van Unsplash</string>
+    <string-array name="pref_theme_array">
+        <item>Licht thema</item>
+        <item>Donker thema</item>
+        <item>Zwart thema</item>
+    </string-array>
+    <string-array name="pref_theme_array_values">
+        <item>licht</item>
+        <item>donker</item>
+        <item>zwart</item>
+    </string-array>
+    <string-array name="pref_info_icons_array">
+        <item>Icons8-website</item>
+        <item>Google-website</item>
+    </string-array>
+
+    <string name="about">Over</string>
+    <string name="about_summary">Over de app</string>
+    <string name="about_version">Versie %1$s</string>
+
+    <string name="about_disclaimer1">Er is mogelijk een nieuwere versie beschikbaar op GitHub. Deze app is gratis en zal dat ook altijd blijven. Betaal niet voor deze app.</string>
+    <string name="about_disclaimer2">Ik ben niet aansprakelijk voor schade aan je apparaat.</string>
+</resources>
