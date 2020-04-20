@@ -40,18 +40,12 @@
     <string name="pref_reset_question">Weet je zeker dat je wilt doorgaan?</string>
     <string name="pref_reset_toast">Standaardwaarden teruggezet</string>
     <string name="pref_info">Informatie</string>
-    <string name="pref_info_icons">Pictogrammen</string>
-    <string name="pref_info_icons_summary">De pictogrammen zijn gemaakt door Icons8 en Google</string>
     <string name="pref_info_header">Kopachtergrond</string>
     <string name="pref_info_header_summary">De kopachtergrond is gemaakt door Nick Perez van Unsplash</string>
     <string-array name="pref_theme_array">
         <item>Licht thema</item>
         <item>Donker thema</item>
         <item>Zwart thema</item>
-    </string-array>
-    <string-array name="pref_info_icons_array">
-        <item>Icons8-website</item>
-        <item>Google-website</item>
     </string-array>
 
     <string name="about">Over</string>
