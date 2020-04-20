@@ -39,7 +39,7 @@ class Preferences : AppCompatActivity() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             addPreferencesFromResource(R.xml.pref_general)
             findPreference<Preference>("reset_json")!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                AlertDialog.Builder(context!!)
+                AlertDialog.Builder(requireContext())
                         .setTitle(R.string.pref_reset)
                         .setMessage(R.string.pref_reset_question)
                         .setPositiveButton(android.R.string.ok) { _, _ ->
@@ -55,7 +55,7 @@ class Preferences : AppCompatActivity() {
                 true
             }
             findPreference<Preference>("icons")!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                AlertDialog.Builder(context!!)
+                AlertDialog.Builder(requireContext())
                         .setTitle(R.string.pref_info_icons)
                         .setItems(resources.getStringArray(R.array.pref_info_icons_array)) { _, which ->
                             val intent: Intent = when (which) {
