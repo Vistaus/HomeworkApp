@@ -3,7 +3,7 @@ package io.github.domi04151309.homeworkapp.data
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
-import io.github.domi04151309.homeworkapp.objects.Global
+import io.github.domi04151309.homeworkapp.helpers.Global
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception

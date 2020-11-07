@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp
+package io.github.domi04151309.homeworkapp.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -10,8 +10,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import io.github.domi04151309.homeworkapp.activities.EditActivity
+import io.github.domi04151309.homeworkapp.R
 import io.github.domi04151309.homeworkapp.data.Plan
-import io.github.domi04151309.homeworkapp.objects.Global
+import io.github.domi04151309.homeworkapp.helpers.Global
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception

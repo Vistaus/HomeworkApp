@@ -6,13 +6,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.service.quicksettings.TileService
-import io.github.domi04151309.homeworkapp.services.AddTaskQS
+import io.github.domi04151309.homeworkapp.services.AddTaskTileService
 
-class OnBootCompleted : BroadcastReceiver() {
+class BootCompletedReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if(intent.action == Intent.ACTION_BOOT_COMPLETED && Build.VERSION.SDK_INT >= 24) {
-            TileService.requestListeningState(context, ComponentName(context , AddTaskQS::class.java))
+            TileService.requestListeningState(context, ComponentName(context , AddTaskTileService::class.java))
         }
     }
 }

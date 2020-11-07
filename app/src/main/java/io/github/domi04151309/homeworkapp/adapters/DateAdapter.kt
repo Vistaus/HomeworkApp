@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp
+package io.github.domi04151309.homeworkapp.adapters
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -11,9 +11,10 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
-import io.github.domi04151309.homeworkapp.DateAdapter.ViewHolder
+import io.github.domi04151309.homeworkapp.R
+import io.github.domi04151309.homeworkapp.adapters.DateAdapter.ViewHolder
 import io.github.domi04151309.homeworkapp.data.Plan
-import io.github.domi04151309.homeworkapp.objects.Global
+import io.github.domi04151309.homeworkapp.helpers.Global
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.*

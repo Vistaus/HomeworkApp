@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp
+package io.github.domi04151309.homeworkapp.activities
 
 import android.os.Bundle
 import android.widget.Toast
@@ -10,15 +10,16 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import android.net.Uri
-import io.github.domi04151309.homeworkapp.objects.Global
-import io.github.domi04151309.homeworkapp.objects.Theme
+import io.github.domi04151309.homeworkapp.R
+import io.github.domi04151309.homeworkapp.helpers.Global
+import io.github.domi04151309.homeworkapp.helpers.Theme
 
 
-class Preferences : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
     private val spChanged = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
         if (key == "theme") {
-            startActivity(Intent(this@Preferences, MainActivity::class.java))
+            startActivity(Intent(this@SettingsActivity, MainActivity::class.java))
             finish()
         }
     }

@@ -4,7 +4,7 @@ import android.annotation.TargetApi
 import android.content.Intent
 import android.os.Build
 import android.service.quicksettings.TileService
-import io.github.domi04151309.homeworkapp.AddActivity
+import io.github.domi04151309.homeworkapp.activities.AddActivity
 import java.text.SimpleDateFormat
 import java.util.*
 

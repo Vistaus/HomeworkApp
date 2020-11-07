@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp.objects
+package io.github.domi04151309.homeworkapp.helpers
 
 import android.app.Activity
 import android.app.ActivityManager

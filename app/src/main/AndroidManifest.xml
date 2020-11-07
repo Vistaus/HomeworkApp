@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme27">
         <receiver
-            android:name=".receivers.OnBootCompleted"
+            android:name=".receivers.BootCompletedReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -24,7 +24,7 @@
             </intent-filter>
         </receiver>
         <service
-            android:name=".services.AddTaskQS"
+            android:name=".services.AddTaskTileService"
             android:icon="@drawable/ic_copybook"
             android:label="@string/new_task"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -37,23 +37,23 @@
                 android:value="true" />
         </service>
         <activity
-            android:name=".EditActivity"
+            android:name=".activities.EditActivity"
             android:label="@string/edit_task"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.domi04151309.homeworkapp.MainActivity" />
+                android:value="io.github.domi04151309.homeworkapp.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".AddActivity"
+            android:name=".activities.AddActivity"
             android:label="@string/new_task"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.domi04151309.homeworkapp.MainActivity" />
+                android:value="io.github.domi04151309.homeworkapp.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name=".activities.SplashActivity"
             android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,25 +62,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Preferences"
+            android:name=".activities.SettingsActivity"
             android:label="@string/pref"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.domi04151309.homeworkapp.MainActivity" />
+                android:value="io.github.domi04151309.homeworkapp.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about"
-            android:parentActivityName=".Preferences">
+            android:parentActivityName=".activities.SettingsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.domi04151309.homeworkapp.Preferences" />
+                android:value="io.github.domi04151309.homeworkapp.activities.SettingsActivity" />
         </activity>
     </application>
 

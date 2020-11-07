@@ -1,4 +1,4 @@
-package io.github.domi04151309.homeworkapp
+package io.github.domi04151309.homeworkapp.activities
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -15,8 +15,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import io.github.domi04151309.homeworkapp.objects.Global
-import io.github.domi04151309.homeworkapp.objects.Theme
+import io.github.domi04151309.homeworkapp.R
+import io.github.domi04151309.homeworkapp.adapters.DateAdapter
+import io.github.domi04151309.homeworkapp.helpers.Global
+import io.github.domi04151309.homeworkapp.helpers.Theme
 import java.util.*
 
 
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_settings -> {
                 reload = true
-                startActivity(Intent(this, Preferences::class.java))
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
             R.id.nav_source -> {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Domi04151309/HomeworkApp")))
