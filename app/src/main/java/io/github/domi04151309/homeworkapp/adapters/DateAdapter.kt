@@ -49,25 +49,28 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         holder.listView.adapter = adapter
 
         val cal = Calendar.getInstance()
-        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-            cal.set(Calendar.YEAR, year)
-            cal.set(Calendar.MONTH, monthOfYear)
-            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            cal.set(Calendar.HOUR_OF_DAY, 0)
-            cal.set(Calendar.MINUTE, 0)
-            cal.set(Calendar.SECOND, 0)
-            cal.set(Calendar.MILLISECOND, 0)
+        val dateSetListener =
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                cal.set(Calendar.HOUR_OF_DAY, 0)
+                cal.set(Calendar.MINUTE, 0)
+                cal.set(Calendar.SECOND, 0)
+                cal.set(Calendar.MILLISECOND, 0)
 
-            LocalBroadcastManager.getInstance(c).sendBroadcast(
-                Intent(Global.LOAD_REQUESTED)
-                    .putExtra("difference", getDaysDifference(cal.time))
-            )
-        }
+                LocalBroadcastManager.getInstance(c).sendBroadcast(
+                    Intent(Global.LOAD_REQUESTED)
+                        .putExtra("difference", getDaysDifference(cal.time))
+                )
+            }
         holder.jumpBtn.setOnClickListener {
-            DatePickerDialog(c, dateSetListener,
+            DatePickerDialog(
+                c, dateSetListener,
                 cal.get(Calendar.YEAR),
                 cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)).show()
+                cal.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
     }
 
@@ -84,7 +87,7 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         return ((to.time - today.time.time) / (1000 * 60 * 60 * 24)).toInt()
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dateTxt: TextView = itemView.findViewById(R.id.dateTxt)
         val jumpBtn: ImageButton = itemView.findViewById(R.id.jumpBtn)
         val listView: ListView = itemView.findViewById(R.id.listView)

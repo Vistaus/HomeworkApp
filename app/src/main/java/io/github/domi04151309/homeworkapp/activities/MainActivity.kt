@@ -33,13 +33,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private val dataSetReceiver = object : BroadcastReceiver() {
         override fun onReceive(c: Context, intent: Intent) {
-            viewPager!!.adapter!!.notifyDataSetChanged()
+            viewPager?.adapter?.notifyDataSetChanged()
         }
     }
 
     private val loadRequestedReceiver = object : BroadcastReceiver() {
         override fun onReceive(c: Context, intent: Intent) {
-            viewPager!!.currentItem = loadingSize / 2 + intent.getIntExtra("difference", 0)
+            viewPager?.currentItem = loadingSize / 2 + intent.getIntExtra("difference", 0)
         }
     }
 
@@ -52,37 +52,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView = findViewById(R.id.nav_view)
 
         findViewById<ImageView>(R.id.menu_icon).setOnClickListener {
-            drawerLayout!!.openDrawer(GravityCompat.START)
+            drawerLayout?.openDrawer(GravityCompat.START)
         }
 
-        navView!!.setNavigationItemSelectedListener(this)
-        navView!!.setCheckedItem(R.id.nav_planner)
+        navView?.setNavigationItemSelectedListener(this)
+        navView?.setCheckedItem(R.id.nav_planner)
 
         viewPager = findViewById(R.id.pager)
         val dateAdapter = DateAdapter(this, loadingSize)
 
-        viewPager!!.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        viewPager!!.adapter = dateAdapter
-        viewPager!!.currentItem = loadingSize / 2
+        viewPager?.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        viewPager?.adapter = dateAdapter
+        viewPager?.currentItem = loadingSize / 2
 
         val localBroadcastManager = LocalBroadcastManager.getInstance(this)
-        localBroadcastManager.registerReceiver(dataSetReceiver, IntentFilter(Global.DATA_SET_CHANGED))
-        localBroadcastManager.registerReceiver(loadRequestedReceiver, IntentFilter(Global.LOAD_REQUESTED))
+        localBroadcastManager.registerReceiver(
+            dataSetReceiver,
+            IntentFilter(Global.DATA_SET_CHANGED)
+        )
+        localBroadcastManager.registerReceiver(
+            loadRequestedReceiver,
+            IntentFilter(Global.LOAD_REQUESTED)
+        )
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
-            calendar.add(Calendar.DATE, viewPager!!.currentItem - dateAdapter.halfSize)
+            calendar.add(Calendar.DATE, (viewPager?.currentItem ?: return@setOnClickListener) - dateAdapter.halfSize)
 
-            startActivity(Intent(this, AddActivity::class.java)
-                .putExtra("saveDate", dateAdapter.saveFormat.format(calendar.time))
-                .putExtra("displayDate", dateAdapter.displayFormat.format(calendar.time))
+            startActivity(
+                Intent(this, AddActivity::class.java)
+                    .putExtra("saveDate", dateAdapter.saveFormat.format(calendar.time))
+                    .putExtra("displayDate", dateAdapter.displayFormat.format(calendar.time))
             )
         }
     }
 
     override fun onBackPressed() {
-        if (drawerLayout!!.isDrawerOpen(GravityCompat.START))
-            drawerLayout!!.closeDrawer(GravityCompat.START)
+        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true)
+            drawerLayout?.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
     }
@@ -97,7 +104,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(Intent(this, SettingsActivity::class.java))
             }
             R.id.nav_source -> {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Domi04151309/HomeworkApp")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://github.com/Domi04151309/HomeworkApp")
+                    )
+                )
             }
         }
         drawerLayout!!.closeDrawer(GravityCompat.START)
@@ -106,9 +118,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onResume() {
         super.onResume()
-        navView!!.setCheckedItem(R.id.nav_planner)
+        navView?.setCheckedItem(R.id.nav_planner)
         if (reload) {
-            viewPager!!.adapter!!.notifyDataSetChanged()
+            viewPager?.adapter?.notifyDataSetChanged()
             reload = false
         }
     }

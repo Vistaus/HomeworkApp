@@ -80,11 +80,12 @@ object Theme {
 
     private fun recent(c: Context, color: Int) {
         val taskDescription = ActivityManager.TaskDescription(
-                c.getString(R.string.app_name),
-                BitmapFactory.decodeResource(c.resources,
-                    R.mipmap.ic_launcher
-                ),
-                ContextCompat.getColor(c, color)
+            c.getString(R.string.app_name),
+            BitmapFactory.decodeResource(
+                c.resources,
+                R.mipmap.ic_launcher
+            ),
+            ContextCompat.getColor(c, color)
         )
         (c as Activity).setTaskDescription(taskDescription)
     }

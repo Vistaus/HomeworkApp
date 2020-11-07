@@ -18,9 +18,14 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
 
-internal class ListViewAdapter(private val context: Context,private val date: String, private val itemArray: JSONArray) : BaseAdapter() {
+internal class ListViewAdapter(
+    private val context: Context,
+    private val date: String,
+    private val itemArray: JSONArray
+) : BaseAdapter() {
 
-    private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private val inflater: LayoutInflater =
+        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private val plan = Plan(context)
 
     override fun getCount(): Int {
@@ -46,7 +51,8 @@ internal class ListViewAdapter(private val context: Context,private val date: St
         try {
             val item = plan.convertToPlanItem(itemArray[position] as JSONObject)
             titleTxt.text = item.title
-            if (item.description == "") descriptionTxt.text = context.resources.getString(R.string.planner_no_description)
+            if (item.description == "") descriptionTxt.text =
+                context.resources.getString(R.string.planner_no_description)
             else descriptionTxt.text = item.description
 
             if (item.done) {
@@ -61,9 +67,10 @@ internal class ListViewAdapter(private val context: Context,private val date: St
                     .sendBroadcast(Intent(Global.DATA_SET_CHANGED))
             }
             editBtn.setOnClickListener {
-                context.startActivity(Intent(context, EditActivity::class.java)
-                    .putExtra("date", date)
-                    .putExtra("index", position)
+                context.startActivity(
+                    Intent(context, EditActivity::class.java)
+                        .putExtra("date", date)
+                        .putExtra("index", position)
                 )
             }
             deleteBtn.setOnClickListener {

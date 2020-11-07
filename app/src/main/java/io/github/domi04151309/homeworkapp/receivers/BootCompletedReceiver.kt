@@ -11,8 +11,11 @@ import io.github.domi04151309.homeworkapp.services.AddTaskTileService
 class BootCompletedReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        if(intent.action == Intent.ACTION_BOOT_COMPLETED && Build.VERSION.SDK_INT >= 24) {
-            TileService.requestListeningState(context, ComponentName(context , AddTaskTileService::class.java))
+        if (intent.action == Intent.ACTION_BOOT_COMPLETED && Build.VERSION.SDK_INT >= 24) {
+            TileService.requestListeningState(
+                context,
+                ComponentName(context, AddTaskTileService::class.java)
+            )
         }
     }
 }

@@ -21,7 +21,7 @@
                 android:layout_width="50dp"
                 android:layout_height="?attr/actionBarSize"
                 android:src="@drawable/ic_menu"
-                android:tint="?android:attr/textColorPrimary"
+                app:tint="?android:attr/textColorPrimary"
                 android:alpha="0.6"
                 android:padding="13dp"
                 android:layout_centerVertical="true"
@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/new_task"
         app:srcCompat="@drawable/ic_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,7 +13,9 @@ class Plan(context: Context) {
     private val _prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
     private fun getPlannerObject(): JSONObject {
-        return JSONObject(_prefs.getString("planner_json", Global.DEFAULT_JSON) ?: Global.DEFAULT_JSON)
+        return JSONObject(
+            _prefs.getString("planner_json", Global.DEFAULT_JSON) ?: Global.DEFAULT_JSON
+        )
     }
 
     fun convertToPlanItem(jsonObj: JSONObject): PlanItem {
@@ -37,18 +39,24 @@ class Plan(context: Context) {
             .put("description", planItem.description)
             .put("done", planItem.done)
         val newDateArray = getDay(date).put(planObject)
-        _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
+        _prefs.edit()
+            .putString("planner_json", getPlannerObject().put(date, newDateArray).toString())
+            .apply()
     }
 
     fun deleteTask(date: String, index: Int) {
         val newDateArray = getDay(date)
         newDateArray.remove(index)
-        _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
+        _prefs.edit()
+            .putString("planner_json", getPlannerObject().put(date, newDateArray).toString())
+            .apply()
     }
 
     fun done(done: Boolean, date: String, index: Int) {
         val newDateArray = getDay(date)
         newDateArray.getJSONObject(index).put("done", done)
-        _prefs.edit().putString("planner_json", getPlannerObject().put(date, newDateArray).toString()).apply()
+        _prefs.edit()
+            .putString("planner_json", getPlannerObject().put(date, newDateArray).toString())
+            .apply()
     }
 }
