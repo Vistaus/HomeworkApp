@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputLayout
 import io.github.domi04151309.homeworkapp.R
 import io.github.domi04151309.homeworkapp.data.Plan
 import io.github.domi04151309.homeworkapp.data.PlanItem
@@ -26,8 +26,10 @@ class AddActivity : AppCompatActivity() {
         val saveDate = intent.getStringExtra("saveDate") ?: ""
         val displayDate = intent.getStringExtra("displayDate") ?: ""
         val titleTxt = findViewById<TextView>(R.id.titleTxt)
-        val titleBox = findViewById<EditText>(R.id.titleBox)
-        val descriptionBox = findViewById<EditText>(R.id.descriptionBox)
+        val titleBox = findViewById<TextInputLayout>(R.id.titleBox).editText
+            ?: throw NullPointerException()
+        val descriptionBox = findViewById<TextInputLayout>(R.id.descriptionBox).editText
+            ?: throw NullPointerException()
 
         findViewById<TextView>(R.id.dateTxt).text = resources.getString(R.string.date, displayDate)
 
