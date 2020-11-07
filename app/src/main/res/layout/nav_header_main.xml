@@ -20,7 +20,8 @@
             android:layout_width="@dimen/header_icon_height"
             android:layout_height="@dimen/header_icon_height"
             android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_launcher_blue" />
+            app:srcCompat="@drawable/ic_launcher_white"
+            app:tint="?attr/colorAccent" />
 
         <TextView
             android:layout_width="match_parent"
