@@ -85,6 +85,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/edit_task"
         android:backgroundTint="?attr/colorAccent"
+        app:borderWidth="0dp"
         app:tint="@android:color/white"
         app:srcCompat="@drawable/ic_done" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
