@@ -12,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.preference.PreferenceManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import io.github.domi04151309.homeworkapp.R
 import io.github.domi04151309.homeworkapp.adapters.DateAdapter
 import io.github.domi04151309.homeworkapp.helpers.Global
+import io.github.domi04151309.homeworkapp.helpers.P
 import io.github.domi04151309.homeworkapp.helpers.Theme
 import java.util.*
 
@@ -42,6 +44,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             viewPager?.currentItem = loadingSize / 2 + intent.getIntExtra("difference", 0)
         }
     }
+
+    private var themeId = ""
+    private fun getThemeId(): String =
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .getString(P.PREF_THEME, P.PREF_THEME_DEFAULT) ?: P.PREF_THEME_DEFAULT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Theme.setNoActionBar(this)
@@ -85,6 +92,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .putExtra("displayDate", dateAdapter.displayFormat.format(calendar.time))
             )
         }
+
+        themeId = getThemeId()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (getThemeId() != themeId) {
+            themeId = getThemeId()
+            recreate()
+        }
+
+        navView?.setCheckedItem(R.id.nav_planner)
+        if (reload) {
+            viewPager?.adapter?.notifyDataSetChanged()
+            reload = false
+        }
     }
 
     override fun onBackPressed() {
@@ -114,14 +137,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         drawerLayout!!.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    override fun onResume() {
-        super.onResume()
-        navView?.setCheckedItem(R.id.nav_planner)
-        if (reload) {
-            viewPager?.adapter?.notifyDataSetChanged()
-            reload = false
-        }
     }
 }
