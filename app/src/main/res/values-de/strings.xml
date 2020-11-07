@@ -46,6 +46,7 @@
         <item>Helles Thema</item>
         <item>Dunkles Thema</item>
         <item>Schwarzes Thema</item>
+        <item>System Thema benutzen</item>
     </string-array>
 
     <string name="about">Über</string>
