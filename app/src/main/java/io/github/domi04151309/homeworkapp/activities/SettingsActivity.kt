@@ -56,7 +56,7 @@ class SettingsActivity : AppCompatActivity() {
                     AlertDialog.Builder(requireContext())
                         .setTitle(R.string.pref_reset)
                         .setMessage(R.string.pref_reset_question)
-                        .setPositiveButton(android.R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.btn_reset) { _, _ ->
                             PreferenceManager.getDefaultSharedPreferences(context).edit()
                                 .putString("planner_json", Global.DEFAULT_JSON).apply()
                             Toast.makeText(context, R.string.pref_reset_toast, Toast.LENGTH_LONG)

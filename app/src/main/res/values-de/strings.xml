@@ -22,6 +22,7 @@
     <string name="btn_done">Fertig</string>
     <string name="btn_edit">Bearbeiten</string>
     <string name="btn_delete">Löschen</string>
+    <string name="btn_reset">Zurücksetzen</string>
 
     <string name="err_missing_title">Geben Sie bitte einen Titel ein</string>
     <string name="err_missing_title_summary">Ein Titel ist wichtig, damit sie Den Eintrag später wiedererkennen können</string>

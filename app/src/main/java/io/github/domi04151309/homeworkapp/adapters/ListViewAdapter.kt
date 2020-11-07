@@ -77,7 +77,7 @@ internal class ListViewAdapter(
                 AlertDialog.Builder(context)
                     .setTitle(R.string.dialog_delete)
                     .setMessage(R.string.dialog_delete_summary)
-                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                    .setPositiveButton(R.string.btn_delete) { _, _ ->
                         plan.deleteTask(date, position)
                         LocalBroadcastManager.getInstance(context)
                             .sendBroadcast(Intent(Global.DATA_SET_CHANGED))
