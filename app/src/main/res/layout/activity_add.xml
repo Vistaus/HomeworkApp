@@ -108,5 +108,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/new_task"
+        android:backgroundTint="?attr/colorAccent"
+        app:tint="@android:color/white"
         app:srcCompat="@drawable/ic_done" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

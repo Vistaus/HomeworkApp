@@ -1,6 +1,5 @@
 package io.github.domi04151309.homeworkapp.adapters
 
-import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.datepicker.MaterialDatePicker
 import io.github.domi04151309.homeworkapp.R
 import io.github.domi04151309.homeworkapp.adapters.DateAdapter.ViewHolder
 import io.github.domi04151309.homeworkapp.data.Plan
@@ -19,10 +20,11 @@ import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder>() {
+class DateAdapter(
+    private val c: Context,
+    private val size: Int
+) : RecyclerView.Adapter<ViewHolder>() {
 
-    private val c: Context = context
-    private val fullSize: Int = size
     val halfSize: Int = size / 2
     private var calendar: Calendar = Calendar.getInstance()
     val saveFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
@@ -32,8 +34,7 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
     private var array: JSONArray = JSONArray()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(c).inflate(R.layout.pager_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(LayoutInflater.from(c).inflate(R.layout.pager_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -48,34 +49,28 @@ class DateAdapter(context: Context, size: Int) : RecyclerView.Adapter<ViewHolder
         val adapter = ListViewAdapter(c, date, array)
         holder.listView.adapter = adapter
 
-        val cal = Calendar.getInstance()
-        val dateSetListener =
-            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                cal.set(Calendar.HOUR_OF_DAY, 0)
-                cal.set(Calendar.MINUTE, 0)
-                cal.set(Calendar.SECOND, 0)
-                cal.set(Calendar.MILLISECOND, 0)
+        holder.jumpBtn.setOnClickListener {
+            val dialog = MaterialDatePicker
+                .Builder
+                .datePicker()
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build()
 
+            dialog.addOnPositiveButtonClickListener {
+                val calendar = Calendar.getInstance()
+                calendar.timeInMillis = it
                 LocalBroadcastManager.getInstance(c).sendBroadcast(
                     Intent(Global.LOAD_REQUESTED)
-                        .putExtra("difference", getDaysDifference(cal.time))
+                        .putExtra("difference", getDaysDifference(calendar.time))
                 )
             }
-        holder.jumpBtn.setOnClickListener {
-            DatePickerDialog(
-                c, dateSetListener,
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            ).show()
+
+            dialog.show((c as AppCompatActivity).supportFragmentManager, dialog.toString())
         }
     }
 
     override fun getItemCount(): Int {
-        return fullSize
+        return size
     }
 
     private fun getDaysDifference(to: Date): Int {
